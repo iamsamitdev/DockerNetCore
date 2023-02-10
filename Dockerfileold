@@ -1,0 +1,24 @@
+# Base image dotnet sdk
+FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine as build
+
+# Set working directory
+WORKDIR /app
+
+# Copy everything else and build
+COPY . .
+RUN dotnet restore
+
+# Publish the app
+RUN dotnet publish -o /app/published-app
+
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine as runtime
+
+# Set working directory
+WORKDIR /app
+
+# Copy the published app
+COPY --from=build /app/published-app /app
+
+# Set the entrypoint
+ENTRYPOINT [ "dotnet", "/app/DockerNetCoreAPI.dll" ]

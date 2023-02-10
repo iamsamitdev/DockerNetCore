@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "iV6r7yZxHwdnxUd4NrjijR5F6SGbh0VW/gt3iIfgsKI=",
+  "Source": "DockerNetCoreAPI",
+  "BasePath": "_content/DockerNetCoreAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
